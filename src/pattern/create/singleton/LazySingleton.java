@@ -10,7 +10,7 @@ package pattern.create.singleton;
  * @author zjb
  */
 public class LazySingleton {
-//    private static LazySingleton instance = null;
+//    private statics LazySingleton instance = null;
 
     private LazySingleton() {
     }
@@ -21,7 +21,7 @@ public class LazySingleton {
      * 为了避免多个线程同时调用getInstance()方法，我们使用关键字synchronized
      */
 
-//    synchronized public static LazySingleton getInstance() {
+//    synchronized public statics LazySingleton getInstance() {
 //        if (instance == null) {
 //            instance = new LazySingleton();
 //        }
@@ -38,7 +38,7 @@ public class LazySingleton {
      * 只需对其中的代码“instance = new LazySingleton();”进行锁定即可。
      *  因此getInstance()方法可以进行如下改进：
      */
-//    public static LazySingleton getInstance() {
+//    public statics LazySingleton getInstance() {
 //        if (instance == null) {
 //            synchronized (LazySingleton.class) {
 //                instance = new LazySingleton();
