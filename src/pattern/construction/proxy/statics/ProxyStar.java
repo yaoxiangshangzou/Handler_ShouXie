@@ -1,23 +1,23 @@
 package pattern.construction.proxy.statics;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.construction.proxy.statics
- * ÎÄ¼şÃû:    ProxyStar
- * ´´½¨Ê±¼ä:  2018/1/8 on 16:37
- * ÃèÊö:     TODO Ã÷ĞÇ´úÀí¶ÔÏó£º¾­¼ÍÈË
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.construction.proxy.statics
+ * æ–‡ä»¶å:    ProxyStar
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 16:37
+ * æè¿°:     TODO æ˜æ˜Ÿä»£ç†å¯¹è±¡ï¼šç»çºªäºº
  *
  * @author zjb
  */
 public class ProxyStar implements Star {
 
     /**
-     * ÕæÊµ¶ÔÏóµÄÒıÓÃ£¨Ã÷ĞÇ£©
+     * çœŸå®å¯¹è±¡çš„å¼•ç”¨ï¼ˆæ˜æ˜Ÿï¼‰
      */
     private Star star;
 
     /**
-     * Í¨¹ı¹¹ÔìÆ÷¸øÕæÊµ½ÇÉ«¸³Öµ
+     * é€šè¿‡æ„é€ å™¨ç»™çœŸå®è§’è‰²èµ‹å€¼
      *
      * @param star
      */
@@ -28,19 +28,19 @@ public class ProxyStar implements Star {
 
     @Override
     public void signContract() {
-        System.out.println("¾­¼ÍÈË.Ç©ºÏÍ¬()");
+        System.out.println("ç»çºªäºº.ç­¾åˆåŒ()");
     }
 
 
     @Override
     public void sing() {
-        //ÕæÊµ¶ÔÏóµÄ²Ù×÷£¨Ã÷ĞÇ³ª¸è£©
+        //çœŸå®å¯¹è±¡çš„æ“ä½œï¼ˆæ˜æ˜Ÿå”±æ­Œï¼‰
         star.sing();
     }
 
     @Override
     public void collectMoney() {
-        System.out.println("¾­¼ÍÈË.ÊÕÎ²¿î()");
+        System.out.println("ç»çºªäºº.æ”¶å°¾æ¬¾()");
     }
 
 

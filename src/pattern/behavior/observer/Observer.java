@@ -1,11 +1,11 @@
 package pattern.behavior.observer;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.behavior.observer
- * ÎÄ¼şÃû:    Observer
- * ´´½¨Ê±¼ä:  2018/1/8 on 17:32
- * ÃèÊö:     TODO ³éÏó¹Û²ìÕß
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.behavior.observer
+ * æ–‡ä»¶å:    Observer
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 17:32
+ * æè¿°:     TODO æŠ½è±¡è§‚å¯Ÿè€…
  *
  * @author zjb
  */
@@ -15,12 +15,12 @@ public interface Observer {
     public void setName(String name);
 
     /**
-     * ÉùÃ÷Ö§Ô®ÃËÓÑ·½·¨
+     * å£°æ˜æ”¯æ´ç›Ÿå‹æ–¹æ³•
      */
     public void help();
 
     /**
-     * ÉùÃ÷ÔâÊÜ¹¥»÷·½·¨
+     * å£°æ˜é­å—æ”»å‡»æ–¹æ³•
      *
      * @param acc
      */

@@ -1,27 +1,27 @@
 package pattern.construction.proxy.statics;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.construction.proxy.statics
- * ÎÄ¼şÃû:    Star
- * ´´½¨Ê±¼ä:  2018/1/8 on 16:35
- * ÃèÊö:     TODO ³éÏó½ÇÉ«£ºÌá¹©´úÀí½ÇÉ«ºÍÕæÊµ½ÇÉ«¶ÔÍâÌá¹©µÄ¹«¹²·½·¨
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.construction.proxy.statics
+ * æ–‡ä»¶å:    Star
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 16:35
+ * æè¿°:     TODO æŠ½è±¡è§’è‰²ï¼šæä¾›ä»£ç†è§’è‰²å’ŒçœŸå®è§’è‰²å¯¹å¤–æä¾›çš„å…¬å…±æ–¹æ³•
  *
  * @author zjb
  */
 public interface Star {
     /**
-     * Ç©ºÏÍ¬
+     * ç­¾åˆåŒ
      */
     void signContract();
 
     /**
-     * ÊÕÎ²¿î
+     * æ”¶å°¾æ¬¾
      */
     void collectMoney();
 
     /**
-     * ³ª¸è
+     * å”±æ­Œ
      */
     void sing();
 

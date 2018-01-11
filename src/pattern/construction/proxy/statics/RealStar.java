@@ -1,11 +1,11 @@
 package pattern.construction.proxy.statics;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.construction.proxy.statics
- * ÎÄ¼şÃû:    RealStar
- * ´´½¨Ê±¼ä:  2018/1/8 on 16:35
- * ÃèÊö:     TODO ÕæÊµ½ÇÉ«£¨Ã÷ĞÇÒÕÈË£©£ºÑ¦Ö®Ç«
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.construction.proxy.statics
+ * æ–‡ä»¶å:    RealStar
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 16:35
+ * æè¿°:     TODO çœŸå®è§’è‰²ï¼ˆæ˜æ˜Ÿè‰ºäººï¼‰ï¼šè–›ä¹‹è°¦
  *
  * @author zjb
  */
@@ -13,17 +13,17 @@ public class RealStar implements Star {
 
     @Override
     public void signContract() {
-        System.out.println("Ñ¦Ö®Ç«.Ç©ºÏÍ¬()");
+        System.out.println("è–›ä¹‹è°¦.ç­¾åˆåŒ()");
     }
 
     @Override
     public void collectMoney() {
-        System.out.println("Ñ¦Ö®Ç«.ÊÕÎ²¿î()");
+        System.out.println("è–›ä¹‹è°¦.æ”¶å°¾æ¬¾()");
     }
 
     @Override
     public void sing() {
-        //ÕæÊµ½ÇÉ«µÄ²Ù×÷£ºÕæÕıµÄÒµÎñÂß¼­
-        System.out.println("Ñ¦Ö®Ç«.sing()");
+        //çœŸå®è§’è‰²çš„æ“ä½œï¼šçœŸæ­£çš„ä¸šåŠ¡é€»è¾‘
+        System.out.println("è–›ä¹‹è°¦.sing()");
     }
 }

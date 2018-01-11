@@ -3,21 +3,21 @@ package pattern.behavior.observer;
 import java.util.ArrayList;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.behavior.observer
- * ÎÄ¼şÃû:    AllyControlCenter
- * ´´½¨Ê±¼ä:  2018/1/8 on 17:33
- * ÃèÊö:     TODO
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.behavior.observer
+ * æ–‡ä»¶å:    AllyControlCenter
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 17:33
+ * æè¿°:     TODO
  *
  * @author zjb
  */
 public abstract class AllyControlCenter {
     /**
-     * Õ½¶ÓÃû³Æ
+     * æˆ˜é˜Ÿåç§°
      */
     protected String allyName;
     /**
-     * ¶¨ÒåÒ»¸ö¼¯ºÏÓÃÓÚ´æ´¢Õ½¶Ó³ÉÔ±
+     * å®šä¹‰ä¸€ä¸ªé›†åˆç”¨äºå­˜å‚¨æˆ˜é˜Ÿæˆå‘˜
      */
     protected ArrayList<Observer> players = new ArrayList<Observer>();
 
@@ -30,27 +30,27 @@ public abstract class AllyControlCenter {
     }
 
     /**
-     * ×¢²á·½·¨
+     * æ³¨å†Œæ–¹æ³•
      *
      * @param obs
      */
     public void join(Observer obs) {
-        System.out.println(obs.getName() + "¼ÓÈë" + this.allyName + "Õ½¶Ó£¡");
+        System.out.println(obs.getName() + "åŠ å…¥" + this.allyName + "æˆ˜é˜Ÿï¼");
         players.add(obs);
     }
 
     /**
-     * ×¢Ïú·½·¨
+     * æ³¨é”€æ–¹æ³•
      *
      * @param obs
      */
     public void quit(Observer obs) {
-        System.out.println(obs.getName() + "ÍË³ö" + this.allyName + "Õ½¶Ó£¡");
+        System.out.println(obs.getName() + "é€€å‡º" + this.allyName + "æˆ˜é˜Ÿï¼");
         players.remove(obs);
     }
 
     /**
-     * ÉùÃ÷³éÏóÍ¨Öª·½·¨
+     * å£°æ˜æŠ½è±¡é€šçŸ¥æ–¹æ³•
      *
      * @param name
      */

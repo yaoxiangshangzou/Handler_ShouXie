@@ -6,23 +6,23 @@ import pattern.construction.proxy.statics.Star;
 import java.lang.reflect.Proxy;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.construction.proxy.dynamic
- * ÎÄ¼şÃû:    Test
- * ´´½¨Ê±¼ä:  2018/1/8 on 17:25
- * ÃèÊö:     TODO
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.construction.proxy.dynamic
+ * æ–‡ä»¶å:    Test
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 17:25
+ * æè¿°:     TODO
  *
  * @author zjb
  */
 public class Test {
     public static void main(String[] args) {
-        //ÕæÊµ½ÇÉ«
+        //çœŸå®è§’è‰²
         Star realStar = new RealStar();
-        //´¦ÀíÆ÷
+        //å¤„ç†å™¨
         StarHandler handler = new StarHandler(realStar);
-        //´úÀíÀà
+        //ä»£ç†ç±»
         Star proxy = (Star) Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), new Class[]{Star.class}, handler);
-        //µ÷ÓÃ´úÀíÀàµÄ³ª¸è·½·¨£ºÆäÊµµ÷ÓÃµÄÊÇÕæÊµ½ÇÉ«µÄ³ª¸è·½·¨
+        //è°ƒç”¨ä»£ç†ç±»çš„å”±æ­Œæ–¹æ³•ï¼šå…¶å®è°ƒç”¨çš„æ˜¯çœŸå®è§’è‰²çš„å”±æ­Œæ–¹æ³•
         proxy.sing();
     }
 }

@@ -1,11 +1,11 @@
 package pattern.behavior.observer;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.behavior.observer
- * ÎÄ¼şÃû:    Player
- * ´´½¨Ê±¼ä:  2018/1/8 on 17:32
- * ÃèÊö:     TODO ¾ßÌå¹Û²ìÕß
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.behavior.observer
+ * æ–‡ä»¶å:    Player
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 17:32
+ * æè¿°:     TODO å…·ä½“è§‚å¯Ÿè€…
  *
  * @author zjb
  */
@@ -27,21 +27,21 @@ public class Player implements Observer {
     }
 
     /**
-     * Ö§Ô®ÃËÓÑ·½·¨µÄÊµÏÖ
+     * æ”¯æ´ç›Ÿå‹æ–¹æ³•çš„å®ç°
      */
     @Override
     public void help() {
-        System.out.println("¼á³Ö×¡£¬" + this.name + "À´¾ÈÄã£¡");
+        System.out.println("åšæŒä½ï¼Œ" + this.name + "æ¥æ•‘ä½ ï¼");
     }
 
     /**
-     * ÔâÊÜ¹¥»÷·½·¨µÄÊµÏÖ£¬µ±ÔâÊÜ¹¥»÷Ê±½«µ÷ÓÃÕ½¶Ó¿ØÖÆÖĞĞÄÀàµÄÍ¨Öª·½·¨notifyObserver()À´Í¨ÖªÃËÓÑ
+     * é­å—æ”»å‡»æ–¹æ³•çš„å®ç°ï¼Œå½“é­å—æ”»å‡»æ—¶å°†è°ƒç”¨æˆ˜é˜Ÿæ§åˆ¶ä¸­å¿ƒç±»çš„é€šçŸ¥æ–¹æ³•notifyObserver()æ¥é€šçŸ¥ç›Ÿå‹
      *
      * @param acc
      */
     @Override
     public void beAttacked(AllyControlCenter acc) {
-        System.out.println(this.name + "±»¹¥»÷£¡");
+        System.out.println(this.name + "è¢«æ”»å‡»ï¼");
         acc.notifyObserver(name);
     }
 }

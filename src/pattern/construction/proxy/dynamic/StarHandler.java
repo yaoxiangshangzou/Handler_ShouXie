@@ -6,22 +6,22 @@ import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
 /**
- * ÏîÄ¿Ãû:    Demo
- * °üÃû       pattern.construction.proxy.dynamic
- * ÎÄ¼şÃû:    StarHandler
- * ´´½¨Ê±¼ä:  2018/1/8 on 17:23
- * ÃèÊö:     TODO
+ * é¡¹ç›®å:    Demo
+ * åŒ…å       pattern.construction.proxy.dynamic
+ * æ–‡ä»¶å:    StarHandler
+ * åˆ›å»ºæ—¶é—´:  2018/1/8 on 17:23
+ * æè¿°:     TODO
  *
  * @author zjb
  */
 public class StarHandler implements InvocationHandler {
     /**
-     * ÕæÊµ½ÇÉ«
+     * çœŸå®è§’è‰²
      */
     private Star realStar;
 
     /**
-     * Í¨¹ı¹¹ÔìÆ÷À´³õÊ¼»¯ÕæÊµ½ÇÉ«
+     * é€šè¿‡æ„é€ å™¨æ¥åˆå§‹åŒ–çœŸå®è§’è‰²
      *
      * @param realStar
      */
@@ -30,20 +30,20 @@ public class StarHandler implements InvocationHandler {
     }
 
     /**
-     * ËùÓĞµÄÁ÷³Ì¿ØÖÆ¶¼ÔÚinvoke·½·¨ÖĞ
-     * proxy£º´úÀíÀà
-     * method£ºÕıÔÚµ÷ÓÃµÄ·½·¨
-     * args£º·½·¨µÄ²ÎÊı
+     * æ‰€æœ‰çš„æµç¨‹æ§åˆ¶éƒ½åœ¨invokeæ–¹æ³•ä¸­
+     * proxyï¼šä»£ç†ç±»
+     * methodï¼šæ­£åœ¨è°ƒç”¨çš„æ–¹æ³•
+     * argsï¼šæ–¹æ³•çš„å‚æ•°
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         Object object = null;
-        System.out.println("ÕæÊµ½ÇÉ«µ÷ÓÃÖ®Ç°µÄ´¦Àí.....");
+        System.out.println("çœŸå®è§’è‰²è°ƒç”¨ä¹‹å‰çš„å¤„ç†.....");
         if (method.getName().equals("sing")) {
-            //·´Éäµ÷ÓÃrealStarµÄsing·½·¨
+            //åå°„è°ƒç”¨realStarçš„singæ–¹æ³•
             object = method.invoke(realStar, args);
         }
-        System.out.println("ÕæÊµ½ÇÉ«µ÷ÓÃÖ®ºóµÄ´¦Àí.....");
+        System.out.println("çœŸå®è§’è‰²è°ƒç”¨ä¹‹åçš„å¤„ç†.....");
         return object;
     }
 
