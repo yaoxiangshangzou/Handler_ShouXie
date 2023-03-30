@@ -12,27 +12,34 @@ public class Test {
     public static Handler handler;
 
     public static void main(String[] args) throws InterruptedException {
-//        Looper.prepare();
-//        handler = new Handler() {
-//            @Override
-//            public void handleMessage(Message message) {
-//                super.handleMessage(message);
-//                System.out.println("Test：" + Thread.currentThread().getName() + "线程接收到：" + message.obj);
-//            }
-//        };
-//        Looper.loop();
-//        //睡0.5s，保证上面的线程中looper初始化好了
-//        Thread.sleep(500);
-//        new Thread(() -> {
-//            Message message = new Message();
-//            message.obj = Thread.currentThread().getName() + "发送的消息 ";
-//            handler.sendMessage(message);
-//        }).start();
-        new Thread(() -> {
-            for (; ; ) {
-
+        Looper.prepare();
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message message) {
+                super.handleMessage(message);
+                System.out.println("Test：" + Thread.currentThread().getName() + "线程接收到：" + message.obj);
             }
+        };
+        new Thread(() -> {
+            try {
+                Thread.sleep(3000);
+                Message message = new Message();
+                message.obj = Thread.currentThread().getName() + "发送的消息 ";
+                handler.sendMessage(message);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }).start();
+
+        Looper.loop();
+        //睡0.5s，保证上面的线程中looper初始化好了
+
+//        new Thread(() -> {
+//            for (; ; ) {
+//
+//            }
+//        }).start();
 
     }
 }
