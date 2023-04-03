@@ -1,10 +1,9 @@
-package handler.lianxi;
+package handler.lianxiMuliMessage;
+
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-
-import sun.plugin.ClassLoaderInfo;
 
 /**
  * @author :      SunHuaJie
@@ -13,62 +12,66 @@ import sun.plugin.ClassLoaderInfo;
  * @description :
  */
 public class MessageQueue {
+    private static final String TAG = MessageQueue.class.getName();
+    private final Condition nNotEmpty;
+    private final Condition mNotFull;
+
     Message[] mItems;
     int mPutIndex;
-    //队列中消息数
     private int mCount;
+
+    Lock mLock = new ReentrantLock();
     private int mTakeIndex;
 
-    private final Condition getCondition;
-    private final Condition addCondition;
-    Lock mLock;
-
     public MessageQueue() {
-        mItems=new Message[50];
-        mLock = new ReentrantLock();
-        getCondition = mLock.newCondition();
-        addCondition = mLock.newCondition();
+        mItems = new Message[5];
+        nNotEmpty = mLock.newCondition();
+        mNotFull = mLock.newCondition();
     }
 
     public Message next() {
         Message msg = null;
+
         try {
             mLock.lock();
-
             while (mCount <= 0) {
-                System.out.println("MessageQueue：" + "队列空了，读锁阻塞");
-                getCondition.await();
+                nNotEmpty.await();
+                System.out.println(TAG+ "队列空了，阻塞");
             }
             msg = mItems[mTakeIndex];
             mItems[mTakeIndex] = null;
             mTakeIndex = (++mTakeIndex >= mItems.length) ? 0 : mTakeIndex;
             mCount--;
-            //通知生产者生产
-            addCondition.signalAll();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            mLock.unlock();
-        }
-        return msg;
-    }
-
-    public void enqueueMessage(Message message) {
-        try {
-            mLock.lock();
-            while (mCount >= mItems.length) {
-                System.out.println("MessageQueue：" + "队列空了，写锁阻塞");
-                addCondition.await();
-            }
-            mItems[mPutIndex] = message;
-            mPutIndex = (++mPutIndex >= mItems.length) ? 0 : mPutIndex;
-            mCount++;
-            //通知消费者消费
-            getCondition.signalAll();
+            mNotFull.signalAll();
         } catch (InterruptedException e) {
             e.printStackTrace();
         }finally {
             mLock.unlock();
         }
+
+        return msg;
+    }
+
+
+    public void enqueueMessage(Message message) {
+        try {
+            mLock.lock();
+            while (mCount >= mItems.length) {
+                //阻塞
+                mNotFull.await();
+                System.out.println(TAG+  "队列满了，阻塞");
+            }
+            mItems[mPutIndex] = message;
+            mPutIndex = (++mPutIndex >= mItems.length ? 0 : mPutIndex);
+            mCount++;
+            //通知消费者消费
+            nNotEmpty.signalAll();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            mLock.unlock();
+        }
+
+
     }
 }

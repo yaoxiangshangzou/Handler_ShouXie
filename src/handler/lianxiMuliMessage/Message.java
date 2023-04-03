@@ -1,4 +1,4 @@
-package handler.lianxi;
+package handler.lianxiMuliMessage;
 
 /**
  * @author :      SunHuaJie
